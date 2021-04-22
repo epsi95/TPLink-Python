@@ -13,24 +13,24 @@ class TPLinkClient(object):
         self.auth_token = 'Authorization=Basic {}'.format(
             base64.b64encode(self.connection_string.encode('ascii')).decode('ascii'))
         self.AUTH_HEADER = {
-            'host': '192.168.0.1',
+            'host': self.router_url,
             'proxy-connection': 'keep-alive',
             'content-type': 'text/plain',
             'accept': '*/*',
-            'origin': 'http://192.168.0.1',
-            'referer': 'http://192.168.0.1/mainFrame.htm',
+            'origin': 'http://' + self.router_url,
+            'referer': 'http://' + self.router_url + '/mainFrame.htm',
             'accept-encoding': 'gzip, deflate',
             'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
             'cookie': self.auth_token,
             'sec-gpc': '1'
         }
         self.NO_AUTH_HEADER = {
-            'host': '192.168.0.1',
+            'host': self.router_url,
             'proxy-connection': 'keep-alive',
             'content-type': 'text/plain',
             'accept': '*/*',
-            'origin': 'http://192.168.0.1',
-            'referer': 'http://192.168.0.1/qr.htm',
+            'origin': 'http://' + self.router_url,
+            'referer': 'http://' + self.router_url + '/qr.htm',
             'accept-encoding': 'gzip, deflate',
             'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
             'sec-gpc': '1'
