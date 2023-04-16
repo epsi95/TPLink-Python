@@ -269,7 +269,7 @@ Returns status of reboot
 
 ```python
 >>> reboot = tp_client.reboot()
->>> if reboot == ""[error]0"":
+>>> if reboot == "[error]0":
         print("reboot successful")
     else:
         print("reboot not successful")
