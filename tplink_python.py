@@ -310,5 +310,25 @@ class TPLinkClient(object):
         x_tp_pre_shared_key = re.findall(r"(?i)X_TP_PreSharedKey=(\S+)", response)[0]
         return {"SSID": ssid, "X_TP_PreSharedKey": x_tp_pre_shared_key}
 
+    def reboot(self):
+        """
+        Returns status of reboot
 
+        >>> reboot = tp_client.reboot()
 
+        >>> if reboot == "[error]0":
+                print("reboot successful")
+            else:
+                print("reboot not successful")
+
+        Output
+        -------
+        reboot is successful
+
+        :return: Python str "[error]0" means success
+        """
+        url = "http://" + self.router_url + "/cgi?7"
+        payload = "[ACT_REBOOT#0,0,0,0,0,0#0,0,0,0,0,0]0,0\r\n"
+        headers = self.AUTH_HEADER
+        response = requests.request("POST", url, headers=headers, data=payload).text
+        return response
