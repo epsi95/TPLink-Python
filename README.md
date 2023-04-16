@@ -261,3 +261,24 @@ whitelisting successful
 * **Returns**
 
     Python str “[error]0” means success
+
+
+
+#### reboot()
+Returns status of reboot
+
+```python
+>>> reboot = tp_client.reboot()
+>>> if reboot == ""[error]0"":
+        print("reboot successful")
+    else:
+        print("reboot not successful")
+Output
+-------
+reboot successful
+```
+
+
+* **Returns**
+
+    Python str “[error]0” means success
