@@ -62,5 +62,13 @@ def test():
     print("<----------get wifi connection details---------->")
     print(tp_client.get_wifi_connection_details())
 
+    # router reboot
+    print("<----------router reboot---------->")
+    reboot = tp_client.reboot()
+    if reboot == "[error]0":
+        print("reboot successful")
+    else:
+        print("reboot not successful")
+
 
 test()
